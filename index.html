@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+        integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Crazy Radio</title>
+
+</head>
+
+
+
+<body>
+    <div id="confetti_set">
+        <!-- <dotlottie-player id="confetti" src="https://lottie.host/3057ced9-76b9-4d2a-bcc0-62d479ae2ce6/IuFDT8w8ty.json"
+            background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player> -->
+
+        <dotlottie-player id="magic_particle"
+            src="https://lottie.host/bbfb5e4d-2cbd-442a-8667-24981aa2b254/tSfMju92Bw.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+        <dotlottie-player id="magic_particle_right"
+            src="https://lottie.host/bbfb5e4d-2cbd-442a-8667-24981aa2b254/tSfMju92Bw.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+
+    </div>
+
+    <div class="all"></div>
+    <div class="container">
+        <img id="shadow" src="shadow.png" alt="">
+        <div id="radio">
+
+            <div id="control">
+                <span id="play_but">
+                    <img id='play_back' src="./radio_img/play_back.png">
+                    <img id="plaibtn" src="./radio_img/play_btn.png">
+                </span>
+                <span id="stop_but">
+                    <img id='stop_back' src="./radio_img/stop_back.png">
+                    <img id="stop_btn_img" src="./radio_img/stop_btn.png">
+                </span>
+                <span id="music_info_box">
+                    <svg id="rotatingText" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px" height="400px"
+                        viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+                        <defs>
+                            <path id="circlePath" d="M 150 150 m -500 0 a 30 30 0 0 1 1000 0 a 30 30 0 0 1 -1000 0">
+                            </path>
+                        </defs>
+                        <circle cx="150" cy="150" r="60" />
+
+                        <g>
+                            <use xlink:href="#circlePath" fill="none" />
+                            <text id="textPath" fill="#FFBF00">
+                                <textPath id="textPath_text" xlink:href="#circlePath">xxxxx</textPath>
+                            </text>
+                        </g>
+                    </svg>
+                </span>
+                <span id="minus_but">
+                    <img id='minus_back' src="./radio_img/minus_back.png">
+                    <img id="minus_btn_img" src="./radio_img/minus_btn.png">
+                </span>
+                <span id="plus_but">
+                    <img id='plus_back' src="./radio_img/plus_back.png">
+                    <img id="plus_btn_img" src="./radio_img/plus_btn.png">
+                </span>
+            </div>
+
+            <div id="face">
+                <div class="eyes_container">
+                    <div class="eye">
+                        <svg class="pupil" xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 23 21"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M4.19583 4.35065C-4.91639 14.3167 6.04808 26.3016 17.0305 18.3799C24.1928 13.2143 24.1467 8.36149 16.8888 3.74837C9.92761 -0.677672 8.74507 -0.622305 4.19583 4.35065Z"
+                                fill="black" />
+                        </svg>
+                    </div>
+
+                    <div class="eye">
+                        <svg class="pupil" xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 22 21"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.59255 4.98935C1.58015 7.19288 -0.0245412 9.93525 0.02686 11.0837C0.172988 14.3488 7.76405 20.5107 11.4363 20.3464C15.1086 20.182 22.1189 13.3666 21.9727 10.1016C21.8266 6.8365 14.2356 0.674571 10.5633 0.838923C8.7442 0.920336 5.60751 2.78814 3.59255 4.98935Z"
+                                fill="black" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div id="mouse_box">
+                    <div id="mouth">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <img id="handle" src="radio_img/radio_handle.png">
+
+        <svg id="radio_line" xmlns="http://www.w3.org/2000/svg" width="446" height="119" viewBox="0 0 446 119"
+            fill="none">
+            <mask id="path-1-outside-1_339_43" maskUnits="userSpaceOnUse" x="-0.831177" y="0" width="446" height="119"
+                fill="black">
+                <rect fill="white" x="-0.831177" width="446" height="119" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M437.752 17.5177C373.943 10.0188 294.156 5.81713 214.364 7.29329C131.82 8.82038 59.2854 11.6398 7.16882 14.7638C7.17904 42.9478 8.30385 75.6064 9.90015 107.448C73.8896 98.8379 144.718 93.5028 216.68 95.3056C289.854 97.1388 365.696 103.066 436.008 110.574C435.662 78.8269 436.498 46.0435 437.752 17.5177Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M437.752 17.5177C373.943 10.0188 294.156 5.81713 214.364 7.29329C131.82 8.82038 59.2854 11.6398 7.16882 14.7638C7.17904 42.9478 8.30385 75.6064 9.90015 107.448C73.8896 98.8379 144.718 93.5028 216.68 95.3056C289.854 97.1388 365.696 103.066 436.008 110.574C435.662 78.8269 436.498 46.0435 437.752 17.5177Z"
+                fill="url(#paint0_linear_339_43)" />
+            <path
+                d="M214.364 7.29329L214.235 0.294491L214.364 7.29329ZM437.752 17.5177L444.745 17.8249L445.031 11.3249L438.569 10.5655L437.752 17.5177ZM7.16882 14.7638L6.74999 7.77629L0.166433 8.17092L0.168824 14.7663L7.16882 14.7638ZM9.90015 107.448L2.90893 107.799L3.29004 115.401L10.8337 114.386L9.90015 107.448ZM216.68 95.3056L216.855 88.3078L216.68 95.3056ZM436.008 110.574L435.265 117.534L443.094 118.37L443.008 110.497L436.008 110.574ZM214.494 14.2921C293.985 12.8215 373.456 17.0097 436.935 24.4698L438.569 10.5655C374.431 3.02793 294.326 -1.18723 214.235 0.294491L214.494 14.2921ZM7.58766 21.7512C59.5866 18.6343 132.022 15.8178 214.494 14.2921L214.235 0.294491C131.618 1.82292 58.9841 4.64533 6.74999 7.77629L7.58766 21.7512ZM16.8914 107.098C15.298 75.3145 14.179 42.7833 14.1688 14.7612L0.168824 14.7663C0.1791 43.1122 1.30969 75.8983 2.90893 107.799L16.8914 107.098ZM216.855 88.3078C144.447 86.4939 73.2402 91.8621 8.96664 100.511L10.8337 114.386C74.5389 105.814 144.989 100.512 216.505 102.303L216.855 88.3078ZM436.752 103.613C366.31 96.0913 290.27 90.147 216.855 88.3078L216.505 102.303C289.437 104.131 365.082 110.04 435.265 117.534L436.752 103.613ZM443.008 110.497C442.663 78.9131 443.495 46.2631 444.745 17.8249L430.758 17.2104C429.501 45.824 428.66 78.7408 429.009 110.65L443.008 110.497Z"
+                fill="black" mask="url(#path-1-outside-1_339_43)" />
+            <defs>
+                <linearGradient id="paint0_linear_339_43" x1="116.473" y1="4.41001" x2="126.205" y2="105.548"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFCD3E" />
+                    <stop offset="1" stop-color="#FFDC77" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+
+        <svg id="radio_back" xmlns="http://www.w3.org/2000/svg" width="600" height="527" viewBox="0 0 788 527"
+            fill="none">
+            <g filter="url(#filter0_d_117_1466)">
+                <path
+                    d="M53.739 353.509C41.4408 309.525 8.77587 177.855 10.9204 107.447C12.3585 60.2289 64.9873 26.7781 111.609 20.6796C149.908 15.6698 256.263 9.92831 388.184 7.48775C528.113 4.89903 668.029 19.7719 721.775 39.2666C775.52 58.7613 776.19 106.715 776.768 122.71C777.346 138.706 752.865 312.775 750.393 323.978C747.921 335.181 722.884 457.541 708.731 467.449C694.578 477.356 653.842 485.514 611.033 491.729C568.225 497.944 501.998 503.445 378.289 507.196C254.58 510.946 124.913 500.417 105.145 484.777C85.3774 469.137 69.1118 408.49 53.739 353.509Z"
+                    fill="url(#paint0_linear_117_1466)" />
+                <path
+                    d="M7.42198 107.341C6.3365 142.979 14.0431 193.842 23.4815 241.073C32.9368 288.388 44.1993 332.388 50.3683 354.452C51.0017 356.717 51.6369 358.994 52.2742 361.277C59.356 386.652 66.6883 412.926 74.4931 435.06C78.7484 447.128 83.1777 458.064 87.8296 467.014C92.444 475.892 97.4432 483.147 102.973 487.522C105.97 489.893 110.673 491.921 116.438 493.725C122.299 495.559 129.617 497.269 138.128 498.847C155.158 502.005 177.214 504.682 202.453 506.746C252.945 510.876 316.42 512.573 378.395 510.694C502.144 506.942 568.529 501.436 611.536 495.193C632.984 492.079 653.982 488.469 671.426 484.381C688.682 480.338 703.038 475.706 710.738 470.316C712.146 469.331 713.36 467.854 714.417 466.268C715.505 464.635 716.582 462.644 717.647 460.397C719.776 455.901 721.975 450.118 724.182 443.541C728.602 430.372 733.161 413.695 737.337 397.051C744.392 368.933 750.409 340.677 752.845 329.236C753.294 327.13 753.621 325.593 753.811 324.732C755.087 318.948 761.851 272.42 768.193 225.611C771.372 202.145 774.458 178.517 776.714 159.749C777.841 150.366 778.763 142.182 779.386 135.833C779.998 129.591 780.348 124.866 780.266 122.584C780.255 122.272 780.243 121.948 780.232 121.61C779.943 113.32 779.388 97.357 772.432 80.9355C765.129 63.6959 750.835 46.0843 722.968 35.9764C695.655 26.0695 646.866 17.4479 587.641 11.6128C528.316 5.76786 458.219 2.69148 388.119 3.98835C256.211 6.42869 149.673 12.1708 111.155 17.2092C87.2587 20.335 61.8485 30.4522 42.1612 45.8892C22.475 61.3255 8.18255 82.37 7.42198 107.341Z"
+                    stroke="black" stroke-width="7" />
+            </g>
+            <defs>
+                <filter id="filter0_d_117_1466" x="0.115671" y="0.194458" width="787.366" height="526.043"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="7.5768" />
+                    <feGaussianBlur stdDeviation="1.85211" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_117_1466" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_117_1466" result="shape" />
+                </filter>
+                <linearGradient id="paint0_linear_117_1466" x1="397.199" y1="5.66163" x2="381.822" y2="510.427"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFD96A" />
+                    <stop offset="1" stop-color="#FFD049" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+
+        <div class="music_box"></div>
+
+        <div id="chris">
+            <img id='sock' src="chrismas/sock.png">
+            <img id='stick' src="chrismas/stick_right.png">
+            <img id='lefttree' src="chrismas/tree.png">
+            <img id='righttree' src="chrismas/tree.png">
+
+
+            <div class="middle_giftbox">
+                <img src="./chrismas/mint.png" class="giftBox" alt="">
+                <img src="./chrismas/orange_square.png" class="giftBox" alt="">
+            </div>
+            <div class="cir_giftbox-container">
+                <div class="back_giftbox">
+                    <img src="./chrismas/orange_cir.png" class="giftBox3" alt="">
+                </div>
+
+                <div class="back_giftbox">
+                    <img src="./chrismas/green_cir.png" class="giftBox3" alt="">
+                </div>
+            </div>
+            <div id="front_giftbox_container">
+                <div id="front_giftbox_left">
+                    <div class="lidContainer">
+                        <img src="./chrismas/front_green_top.png" class="lid" alt="">
+                    </div>
+                    <img src="./chrismas/front_green.png" class="giftBox-body" alt="">
+                </div>
+
+                <div id="front_giftbox_right">
+                    <div class="lidContainer">
+                        <img src="./chrismas/front_orange_top.png" class="lid" alt="">
+                    </div>
+                    <img src="./chrismas/front_orange.png" class="giftBox-body" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="movingBox"> <img class='chris_hat' src="chrismas/hat.png" alt="" class="yellow_hat"
+                style="width: 250px">
+        </div>
+        <div id="hip">
+            <img id="hip_back" src="./hip/hip_back.png">
+            <div>
+                <img class="speaker" src="hip/speaker.png">
+                <img class="speaker" src="hip/speaker.png">
+            </div>
+            <img id="textmove" src="hip/hiphop_text.gif">
+            <img id="sunglass" src="hip/sunglass.png">
+
+            <dotlottie-player id="note_left"
+                src="https://lottie.host/3d12373a-bd42-4f5f-bb30-b98ae3a66fb3/wnTYhp1tux.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+            <dotlottie-player id="note_right"
+                src="https://lottie.host/3d12373a-bd42-4f5f-bb30-b98ae3a66fb3/wnTYhp1tux.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+
+        </div>
+        <img id="hip_hat" src="hip/hip_hat.png">
+        
+        <div id="folk">
+            <div id="folk_hat">
+                <div class="folk_movingBox">
+                        <div class="folkhat-back">
+                            <img src="./folk/folkhat_back.png" alt="">
+                        </div>
+                </div>
+                <div class="folk_movingBox">
+                        <div class="folkhat-front">
+                            <img src="./folk/folkhat_front.png" alt="">
+                        </div>
+                </div>
+            </div>
+            <img id="guitar" src="folk/guitar.png">
+            <img class='cactus_1' src="folk/cactus.png">
+            <img class='cactus_2' src="folk/cactus.png">
+            <div class="road">
+                <div class="car"><img src="CAR/car.svg" alt=""></div>
+            </div>
+        </div>
+        <div id="pop">
+            <div id="two_mic">
+                <div id="leftmic_set">
+                    <img id="leftmic" src="./pop/LeftMic.png" alt="">
+                    <img id="left_miceffectimg" src="./pop/LeftMicEffect.png" alt="">
+                </div>
+                <div id="rightmic_set">
+                    <img id="right_miceffectimg" src="./pop/RightMicEffect.png" alt="">
+                    <img id="rightmic" src="./pop/RightMic.png" alt="">
+                </div>
+            </div>
+            <div class="digda_box">
+                <div class="digda-character">
+                    <div class="digda-body"><img src="./pop/digda_body.png" alt="Character Body"></div>
+                    <div class="digda-eye"><img src="./pop/digda_eye.png" alt="Character Eye"></div>
+                    <div class="digda-mouth"><img src="./pop/digda_mouth.png" alt="Character Mouth"></div>
+                </div>
+
+                <div class="digda-character">
+                    <div class="digda-body"><img src="./pop/left_digda_body.png" alt="Character Body"></div>
+                    <div class="digda-eye"><img src="./pop/left_digda_eye.png" alt="Character Eye"></div>
+                    <div class="digda-mouth"><img src="./pop/left_digda_mouth.png" alt="Character Mouth"></div>
+                </div>
+            </div>
+            <div>
+                <div id="left_rose_container">
+                    <div class="left-rose" style="animation-delay: 0.2s;"><img src="./left_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="left-rose" style="animation-delay: 0.5s;"><img src="./left_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="left-rose" style="animation-delay: 0.7s;"><img src="./left_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="left-rose" style="animation-delay: 1.1s;"><img src="./left_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="left-rose" style="animation-delay: 1.5s;"><img src="./left_rose.png" alt=""
+                            width="96px">
+                    </div>
+                </div>
+
+                <div id="right_rose_container">
+                    <div class="right-rose" style="animation-delay: 0s;"><img src="./right_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="right-rose" style="animation-delay: 0.3s;"><img src="./right_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="right-rose" style="animation-delay: 0.7s;"><img src="./right_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="right-rose" style="animation-delay: 1.2s;"><img src="./right_rose.png" alt=""
+                            width="96px">
+                    </div>
+                    <div class="right-rose" style="animation-delay: 1.5s;"><img src="./right_rose.png" alt=""
+                            width="96px">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img id="pop_back" src="./pop/pop_back.png">
+                <img id="pop_title" src="pop/pop_title.png">
+            </div>
+            <img id='crown' src="pop/crown.png">
+        </div>
+        
+    </div>
+    <div class="background_img">
+        <img id='chris_light' src="light.png">
+        <img id='snowback' src="chrismas/snowback.png">
+        <img id='grass' src="folk/grass.png">
+        <div id="sun_move">
+            <svg xmlns="http://www.w3.org/2000/svg" width="92" height="88" viewBox="0 0 92 88" fill="none"
+                class="rotating_sun">
+                <path
+                    d="M28.1862 84.5544C6.31443 77.5027 1.78206 60.7065 0.722656 47.257C-0.635869 30.01 7.17336 14.8136 20.0172 7.37905C37.8428 -2.93907 57.2556 -0.464834 69.0311 5.73281C77.53 10.2059 88.6717 22.8062 90.7434 39.84C92.8151 56.8738 88.3373 65.8056 77.4004 76.314C67.6876 85.6464 52.5787 92.4189 28.1862 84.5544Z"
+                    fill="#FEEAC1" />
+            </svg>
+        </div>
+        <div class="blinking-background"></div>
+    </div>
+    <script src="rose.js"></script>
+    <script src="car.js"></script>
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</body>
+<script>
+
+    //음원별 화면 전환을 위한요소 숨기기
+    $('#chris').css('display', 'none')
+    $('#hip').css('display', 'none')
+    $('#folk').css('display', 'none')
+    $('#pop').css('display', 'none')
+
+    $('#movingBox').css('display', 'none')
+    $('#hip_hat').css('display', 'none')
+    $('#crown').css('display', 'none')
+    $('#confetti').css('display', 'none')
+    $('#confetti_right').css('display', 'none')
+
+    //눈음직임              
+    $(document).ready(function () {
+        $(window).resize();
+
+        // 마우스 움직임 이벤트 리스너를 설정합니다.
+        $(document).mousemove(function (event) {
+            if (buttonIsDragged == false) {
+                return 0;
+            }
+
+            // 각 '.eye' 클래스를 가진 요소에 대해 반복합니다.
+            var balls = document.getElementsByClassName("pupil");
+            document.onmousemove = function () {
+                var x = event.clientX * 60 / window.innerWidth + "%";
+                var y = event.clientY * 60 / window.innerHeight + "%";
+
+                for (var i = 0; i < 2; i++) {
+                    balls[i].style.left = x;
+                    balls[i].style.top = y;
+
+                }
+            }
+        });
+
+    });
+
+    //전체요소를 화면 가운데 위치시키기
+    $(window).resize(function () {
+        $('.container').css({ position: 'absolute' }).css({
+            left: ($(window).width() - $('.container').outerWidth()) / 2,
+            top: ($(window).height() - $('.container').outerHeight()) / 2
+        });
+    });
+
+    let buttonIsDragged = false;
+
+    //마우스 위치에 따른 입 크기 변화
+    function mousemove_box() {
+        $(document).mousemove(function (e) {
+            let mouseX = e.clientX;
+            let mouseY = e.clientY;
+
+            let element = $('#mouth');
+            let elementX = element.offset().left + element.width() / 2;
+            let elementY = element.offset().top + element.height() / 2;
+
+            let distance = Math.sqrt(Math.pow(mouseX - elementX, 2) + Math.pow(mouseY - elementY, 2));
+
+            //가까이 가면 입이 커지는
+            $('#mouth').css('max-height', 150);
+            $('#mouth').css('height', (1000 - distance * 2) / 2)
+
+        });
+
+    }
+    mousemove_box();
+
+    //음원 재생 (음악 정보 간 여백을 만들기 위해 &emsp; 추가)
+    let audios = [
+        {
+            audio: 'music/1.mp3',
+            info: '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Santa Claus is comin to town - Michael Buble'
+        },
+        {
+            audio: 'music/2.mp3',
+            info: '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; BILLIE EILIS - Armani White'
+        },
+        {
+            audio: 'music/3.mp3',
+            info: '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Take Me Home, Country Roads - John Denver'
+        },
+        {
+            audio: 'music/4.mp3',
+            info: '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; This is me - The Greatest Show'
+        }
+    ]
+
+    let currentAudio = new Audio()
+
+    for (let i in audios) {
+        let audio = new Audio(audios[i].audio)
+        let info = audios[i].info
+
+        //드롭할 음원 생성하기
+        let dom = $('<div class="music"></div>')
+        let music_img = $('<img src=music_btn/' + (i) + '.png width="90px">')//드롭할 음원 요소에 이미지 추가하기
+        $('.music_box').append(dom)
+        dom.append(audio)
+        dom.append(music_img)
+
+        //드롭
+        $('#mouth').droppable({
+            drop: DropEvent
+        });
+
+        //드래그
+        $(dom).draggable({
+            revert: true,
+            start: function (event, ui) {
+                console.log("start")
+                //드래그 시 입&눈 움직임 제한하기
+                $('#mouth, #mouth .bottom,.top, #eyes').stop()
+            },
+            drag: function (event, ui) {
+                buttonIsDragged = true;
+                //드래그 시 입&눈 움직임 제한하기
+                $('#mouth, #mouth .bottom,.top, #eyes').stop()
+                console.log("drag")
+            },
+            stop: function (event, ui) {
+                buttonIsDragged = false;
+                console.log("dragStop")
+            }
+        });
+
+
+        //드롭시 발생하는 요소들
+        function DropEvent(event, ui) {
+
+            //드래그한 요소의 음원 재생
+            currentAudio.pause()
+            currentAudio.currentTime = 0;
+            let dragged = $(ui)[0].draggable
+            currentAudio = $(dragged).find('audio')[0]
+
+            //드롭 시 입 안에 음원 이미지가 복제되게 하기 (마치 입 안에 실제로 음원이 들어간 것 처럼 보이게 하기 위함) 
+            $(dragged).clone().appendTo("#mouth").attr("style", "position:absolute; left:28px; width:20%; bottom:20px; z-index: 100 ").delay(800).animate({ opacity: 0 }, 50);
+            let audioSrc = $(currentAudio).attr('src');
+            $('#handle').css('opacity', '0')
+
+            // 초기 위치 저장
+            const initialPositions = {
+                'movingBox': null,
+                'hip_hat': null,
+                'folk_hat': null,
+                'crown': null
+            };
+
+            // 화면 로드 시 초기 위치 저장
+            $(document).ready(function() {
+                for (const hatId in initialPositions) {
+                    const hatElement = document.getElementById(hatId);
+                    if (hatElement) {
+                        initialPositions[hatId] = $(hatElement).position().top;
+                    }
+                }
+            });
+
+            function resetchris_HatAnimation() {
+                resetHatAnimation('movingBox');
+            }
+
+            function resethip_HatAnimation() {
+                resetHatAnimation('hip_hat');
+            }
+
+            function resetfolk_HatAnimation() {
+                resetHatAnimation('folk_hat');
+            }
+
+            function resetpop_HatAnimation() {
+                resetHatAnimation('crown');
+            }
+
+            function resetHatAnimation(hatId) {
+                const hatElement = document.getElementById(hatId);
+                
+                if (hatElement) {
+                    // 현재 음원이 재생 중이 아닌 경우에만 위치 초기화 수행
+                    if (currentAudio.paused) {
+                        const initialPosition = initialPositions[hatId];
+                        hatElement.style.top = initialPosition + 'px';
+                        isAnimating = false;  // 애니메이션 상태 초기화
+                    }
+                }
+            }
+
+
+
+            //크리스마스 애니메이션
+            if (audioSrc == 'music/1.mp3') {
+
+                //상단에 지나갈 음원 정보 넣기
+                let chris_name = audios[0].info
+                let chirs_result = chris_name.repeat(6);
+                $('#textPath_text').html(chirs_result)
+
+                //해당 음원 요소 애니메이션              
+                showChristmasElements();
+
+                //다른 음원 요소 숨기기
+                $('#hip').css('display', 'none')
+                $('#folk').css('display', 'none')
+                $('#pop').css('display', 'none')
+                $('#grass').css('display', 'none')
+                $('#hip_hat').css('display', 'none')
+                $('.money').hide();
+                $('#sun_move').hide();
+                $('.blinking-background').css('display', 'none')
+
+                //다른 음원 요소 초기화
+                // resetchris_HatAnimation();
+                resethip_HatAnimation();
+                resetfolk_HatAnimation();
+                resetpop_HatAnimation();
+
+                stopMoneyDropEffect();
+
+            }
+            //힙합 애니메이션
+            else if (audioSrc == 'music/2.mp3') {
+
+                //상단에 지나갈 음원 정보 넣기
+                let hip_name = audios[1].info
+                let hip_result = hip_name.repeat(6);
+                $('#textPath_text').html(hip_result)
+
+                //해당 음원 요소 애니메이션
+                showhipElements();
+
+                //다른 음원 요소 숨기기
+                $('#chris').css('display', 'none')
+                $('#folk').css('display', 'none')
+                $('#pop').css('display', 'none')
+                $('#snowback').css('display', 'none')
+                $('#chris_light').css('display', 'none')
+                $('#grass').css('display', 'none')
+                $('#movingBox').css('display', 'none')
+                $('.snowflake').hide();
+                $('.chris_hat').hide();
+                $('#sun_move').hide();
+
+                $('.blinking-background').css('animation', 'blink 0.1s 14.2s 1, blinkFast 0.1s 16.49s 1')
+                //다른 음원 요소 초기화
+                resetchris_HatAnimation();
+                resethip_HatAnimation();
+                resetfolk_HatAnimation();
+                resetpop_HatAnimation();
+
+                stopSnowflakeEffect();
+
+            }
+            //포크 애니메이션
+            else if (audioSrc == 'music/3.mp3') {
+
+                //상단에 지나갈 음원 정보 넣기
+                let folk_name = audios[2].info
+                let folk_result = folk_name.repeat(6);
+                $('#textPath_text').html(folk_result)
+
+                //해당 음원 요소 애니메이션
+                showforkElements();
+
+                //다른 음원 요소 숨기기
+                $('#chris').css('display', 'none')
+                $('#hip').css('display', 'none')
+                $('#pop').css('display', 'none')
+                $('#snowback').css('display', 'none')
+                $('#chris_light').css('display', 'none')
+                $('#hip_hat').css('display', 'none')
+                $('#movingBox').css('display', 'none')
+                $('.snowflake').hide();
+                $('.chris_hat').hide();
+                $('#confetti').css('display', 'none')
+                $('#confetti_right').css('display', 'none')
+                $('.money').hide();
+                $('.blinking-background').css('display', 'none')
+
+                //다른 음원 요소 초기화
+                resetchris_HatAnimation();
+                resethip_HatAnimation();
+                resetfolk_HatAnimation();
+                resetpop_HatAnimation();
+
+                stopSnowflakeEffect();
+                stopMoneyDropEffect();
+
+            }
+            //팝 애니메이션
+            else if (audioSrc == 'music/4.mp3') {
+
+                //상단에 지나갈 음원 정보 넣기
+                let pop_name = audios[3].info
+                let pop_result = pop_name.repeat(6);
+                $('#textPath_text').html(pop_result)
+
+                //해당 음원 요소 애니메이션                
+                showpopElements();
+
+                //다른 음원 요소 숨기기
+                $('#chris').css('display', 'none')
+                $('#hip').css('display', 'none')
+                $('#folk').css('display', 'none')
+                $('#snowback').css('display', 'none')
+                $('#chris_light').css('display', 'block')
+                $('#hip_hat').css('display', 'none')
+                $('#movingBox').css('display', 'none')
+                $('.snowflake').hide();
+                $('#grass').css('display', 'none')
+                $('.money').hide();
+                $('.chris_hat').hide();
+                $('#confetti').css('display', 'none')
+                $('#confetti_right').css('display', 'none')
+                $('#sun_move').hide();
+                $('.blinking-background').css('display', 'none')
+
+                $('#control').css({ 'z-index': '10000' });
+                $('#radio').css({ 'z-index': '2' });
+
+                //다른 음원 요소 초기화
+                resetchris_HatAnimation();
+                resethip_HatAnimation();
+                resetfolk_HatAnimation();
+                resetpop_HatAnimation();
+
+                stopSnowflakeEffect();
+                stopMoneyDropEffect();
+
+            }
+
+            //드롭 시 씹어먹는 듯한 움직임 플레이
+            chewing()
+
+            //음악 컨트롤
+            setTimeout(function () {
+                currentAudio.play()
+
+            }, 2000)
+
+            $('#play_but').click(function () {
+                currentAudio.play()
+
+            })
+            $('#stop_but').click(function () {
+                currentAudio.pause()
+                $('#mouth,.bottom,.top, #eyes').stop(true);
+            })
+            $('#plus_but').click(function () {
+                currentAudio.currentTime += 10
+            })
+            $('#minus_but').click(function () {
+                currentAudio.currentTime -= 10
+            })
+
+            $('#play_but').mousedown(function () {
+                $('#plaibtn').css({
+                    'transform': 'scale(0.9)'
+                });
+            })
+            $('#play_but').mouseup(function () {
+                $('#plaibtn').css({
+                    'transform': 'scale(1)'
+
+                });
+            })
+
+            $('#stop_but').mousedown(function () {
+                $('#stop_btn_img').css({
+                    'transform': 'scale(0.9)'
+                });
+            })
+            $('#stop_but').mouseup(function () {
+                $('#stop_btn_img').css({
+                    'transform': 'scale(1)'
+                });
+            })
+
+            $('#minus_but').mousedown(function () {
+                $('#minus_btn_img').css({
+                    'transform': 'scale(0.9)'
+                });
+            })
+            $('#minus_but').mouseup(function () {
+                $('#minus_btn_img').css({
+                    'transform': 'scale(1)'
+                });
+            })
+
+            $('#plus_but').mousedown(function () {
+                $('#plus_btn_img').css({
+                    'transform': 'scale(0.9)'
+                });
+            })
+            $('#plus_but').mouseup(function () {
+                $('#plus_btn_img').css({
+                    'transform': 'scale(1)'
+                });
+            })
+        }
+
+    }
+
+    //음악 정보
+    function rotateText() {
+        // 회전할 텍스트의 부모 요소 가져오기
+        var textContainer = $('#textPath');
+
+        // 무한 회전 애니메이션 추가
+        textContainer.css({
+            'transform-origin': '50% 50%', // 회전 중심점 설정
+            'animation': 'rotate-circle 40s linear infinite'
+        });
+    }
+
+    //노래를 부르는 입 애니메이션
+    function animate() {
+        if (!currentAudio.paused && buttonIsDragged == false) {
+            rotateText();
+
+            // 입에 대한 애니메이션
+            $('#mouth').stop(true, true).animate({
+                height: 115,
+                width: 120
+            }, 500).animate({
+                height: 140,
+                width: 145
+            }, 500);
+
+            // 눈에 대한 애니메이션
+            setTimeout(function () {
+                $('.eyes_container').stop(true, true).animate({
+                    top: 180
+                }, 500).animate({
+                    top: 200
+                }, 500);
+            }, 500); // 입 애니메이션이 500ms 동안 진행되고 나서 눈 애니메이션이 시작되도록 함
+        }
+    }
+    setInterval(animate, 1000);
+
+    //씹는 듯한 입 애니메이션
+    function chewing() {
+        $('#mouth').stop().animate({
+            height: 140,
+            width: 160
+        }).animate({
+            height: 10,
+            width: 150
+        }).animate({
+            height: 50,
+            width: 130
+        }).animate({
+            height: 10,
+            width: 150
+        }).animate({
+            height: 80,
+            width: 130
+        }).animate({
+            height: 10,
+            width: 150
+        }).animate({
+            height: 190,
+            width: 196
+        });
+
+        $('.eyes_container').stop().delay(400).animate({
+            top: 230
+        }).animate({
+            top: 190
+        }).animate({
+            top: 230
+        }).animate({
+            top: 190
+        }).animate({
+            top: 240
+        }).animate({
+            top: 190
+        }).animate({
+            top: 180
+        });
+    }
+
+    //////크리스마스
+    //전체 순서//
+    function showChristmasElements() {
+    //모자떨
+        chris_hat(function () {
+            setTimeout(function () {
+                $('.all').css('background', 'linear-gradient(180deg, #BB1D1D 0%, #A71919 100%')
+                $('#chris_light').css('display', 'flex')
+                $('#snowback').css('display', 'flex');
+                $('#snowback').animate({
+                    top: 430
+                }, 500);
+                $('#chris').css('display', 'block');
+                $('.chris_hat').show();
+                $('.snowflake').css('opacity', '1')
+
+
+                //선물상자 - 흔들리는
+                setInterval(function () {
+                    shakeLid('#front_giftbox_left .lid');
+                    shakeAndAnimate();
+                }, 4500);
+
+
+            }, 2000);
+
+            //선물상자 - 흔들리는
+            setInterval(function () {
+                shakeLid('#front_giftbox_right .lid');
+            }, 4500);
+
+            //선물상자 - 굴러가는
+            setTimeout(function () {
+                animateMovingAndRolling();
+                setTimeout(animateReverseMovingAndRolling, 1000);
+                setTimeout(animateMovingAndRolling, 2000);
+                setTimeout(stopMovingAndRolling, 3000);
+            }, 4500);
+
+            //흔들리는 양말과 막대기
+            rotateObject('#sock', 10, 1000)
+            rotateObject('#sock', -10, 1000);
+            rotateObject('#stick', 10, 1000)
+            rotateObject('#stick', -10, 1000);
+
+            move_tree();
+            startSnowflakeEffect();
+            box();
+
+        });
+    }
+
+    //흔들리는양말과 막대기
+    function rotateObject(element, degree, duration) {
+        $(element).animate({
+            rotation: degree
+        }, {
+            duration: duration,
+            step: function (now, fx) {
+                $(this).css('transform', 'rotate(' + now + 'deg)');
+            },
+            complete: function () {
+                rotateObject(element, degree, duration);
+            }
+
+        });
+    }
+
+    //선물 상자
+    function box() {
+        $("#lid").animate({ rotation: 15 }, {
+            step: function (now, fx) {
+                $(this).css('transform', 'rotate(' + now + 'deg)');
+            },
+            complete: function () {
+                $(this).animate({ rotation: -15 }, {
+                    step: function (now, fx) {
+                        $(this).css('transform', 'rotate(' + now + 'deg)');
+                    },
+                    complete: function () {
+                        $(this).animate({ rotation: 0 }, {
+                            step: function (now, fx) {
+                                $(this).css('transform', 'rotate(' + now + 'deg)');
+                            },
+                            complete: function () {
+                                // 반복 호출
+                                setTimeout(box, 3000);
+                            },
+                            duration: 500,
+                            easing: 'linear'
+                        });
+                    },
+                    duration: 500,
+                    easing: 'linear'
+                });
+            },
+            duration: 500,
+            easing: 'linear'
+        });
+    }
+
+    //선물상자 - 굴러가는
+    function moveAndRollGiftBox(element, offsetX, rotation) {
+        element.css({
+            'left': `${offsetX}px`,
+            'transform': `rotate(${rotation}deg)`,
+        });
+    }
+    function animateMovingAndRolling() {
+        $(".back_giftbox").each(function (index) {
+            let offsetX = (index % 2 === 0) ? 40 : -40; // Adjusted the horizontal movement
+            let rotation = (index % 2 === 0) ? 90 : -90; // Adjusted the rotation
+            moveAndRollGiftBox($(this).find(".giftBox3"), offsetX, rotation);
+        });
+    }
+    function animateReverseMovingAndRolling() {
+        $(".back_giftbox").each(function (index) {
+            let offsetX = (index % 2 === 0) ? -40 : 40; // Reverse the horizontal movement
+            let rotation = (index % 2 === 0) ? -90 : 90; // Reverse the rotation
+            moveAndRollGiftBox($(this).find(".giftBox3"), offsetX, rotation);
+        });
+    }
+    function stopMovingAndRolling() {
+        $(".back_giftbox").each(function () {
+            moveAndRollGiftBox($(this).find(".giftBox3"), 0, 0);
+        });
+        // Repeat the animation after stopping
+        setTimeout(function () {
+            animateMovingAndRolling();
+            setTimeout(animateReverseMovingAndRolling, 1000);
+            setTimeout(animateMovingAndRolling, 2000);
+            setTimeout(stopMovingAndRolling, 3000);
+        }, 2000);
+    }
+
+    //선물상자 - 양쪽의 가운데 위치한 (위로 올라가며 작아졌다가 커졌다하는)
+    function animateGiftBox(element, offsetY1, offsetY2, heightScale) {
+        // 초기 위치 (줄어들지 않는 상태)
+        element.css({
+            'transform': `translateY(0) scale(1)`,
+            'height': '94px'
+        });
+
+        // 첫 번째 튀어오르는 애니메이션
+        setTimeout(function () {
+            element.css({
+                'transform': `translateY(${offsetY1}px) scale(0.9)`,
+                'height': '94px'
+            });
+        }, 250);
+
+        setTimeout(function () {
+            // 첫 번째 내려오는 애니메이션
+            element.css({
+                'transform': 'translateY(0) scale(1)',
+                'height': '94px'
+            });
+        }, 500);
+
+        // 두 번째 튀어오르는 애니메이션
+        setTimeout(function () {
+            element.css({
+                'transform': `translateY(${offsetY2}px) scale(0.9)`,
+                'height': '94px'
+            });
+        }, 750);
+
+        setTimeout(function () {
+            // 두 번째 내려오는 애니메이션
+            element.css({
+                'transform': 'translateY(0) scale(1)',
+                'height': '94px'
+            });
+        }, 1000);
+    }
+    function shakeAndAnimate() {
+        $(".giftBox").toggleClass('shake');
+        setTimeout(function () {
+            $(".giftBox").toggleClass('shake');
+        }, 125);
+        setTimeout(function () {
+            // 첫 번째 선물
+            animateGiftBox($(".middle_giftbox").eq(0).find(".giftBox"), -30, -15, 0.9);
+        }, 250);
+        setTimeout(function () {
+            // 두 번째 선물
+            animateGiftBox($(".middle_giftbox").eq(1).find(".giftBox"), -40, -20, 0.85);
+        }, 500);
+    }
+
+    //선물상자 - 열리는 뚜껑
+    function openLid(lidSelector) {
+        $(lidSelector).css({
+            'transform': 'translateY(-20px) rotate(15deg)',
+        });
+        setTimeout(function () {
+            $(lidSelector).css('transform', 'translateY(-20px) rotate(-15deg)');
+        }, 500);
+        setTimeout(function () {
+            $(lidSelector).css('transform', 'translateY(-20px) rotate(15deg)');
+        }, 1000);
+        setTimeout(function () {
+            $(lidSelector).css({
+                'transform': 'translateY(0) rotate(0)',
+            });
+        }, 1500);
+    }
+
+    //선물상자 - 흔들리는 뚜껑
+    function shakeLid(lidSelector) {
+        $(lidSelector).toggleClass('shake');
+        setTimeout(function () {
+            $(lidSelector).toggleClass('shake');
+        }, 500);
+        setTimeout(function () {
+            openLid(lidSelector);
+        }, 1000);
+    }
+
+    //나무 흔들림
+    function move_tree() {
+        $('#lefttree').animate({
+            left: '-=10px',
+            top: '-=10px',
+            height: '230px'
+        }, 300).animate({
+            right: '+=10px',
+            top: '+=10px',
+            height: '220px'
+        }, 500)
+        $('#lefttree').animate({
+            left: '+=10px',
+            top: '-=10px',
+            height: '230px'
+        }, 300).animate({
+            right: '+=10px',
+            top: '+=10px',
+            height: '220px'
+        }, 500)
+
+        $('#righttree').animate({
+            left: '+=5px',
+            top: '-=10px',
+            height: '230px'
+        }, 300).animate({
+            left: '-=5px',
+            top: '+=10px',
+            height: '220px'
+        }, 500)
+        $('#righttree').animate({
+            left: '+=10px',
+            top: '-=10px',
+            height: '230px'
+        }, 300).animate({
+            left: '-=10px',
+            top: '+=10px',
+            height: '220px'
+        }, 500)
+
+        setTimeout(move_tree, 3000);
+    }
+    setTimeout(move_tree, 3000);
+
+    // 산타 모자 들썩거리는 애니메이션
+    function chris_hat(callback) {
+    $('#movingBox').css('display', 'block');
+
+    var initialPosition = $('#movingBox').position().top;
+
+    // 들썩거리는 애니메이션
+    function bounceAnimation() {
+        $('#movingBox').animate({
+            top: initialPosition - 20 // 일정 높이만큼 이동
+        }, {
+            duration: 700, // 빠르게 올라가는
+            easing: 'easeInOutQuad',
+            complete: function() {
+                // 내려오는 애니메이션 시작 전에 다시 bounceAnimation 호출 (재귀적 호출)
+                $('#movingBox').animate({
+                    top: initialPosition // 초기 위치로 되돌아가기
+                }, {
+                    duration: 700,
+                    easing: 'easeInOutQuad',
+                    complete: bounceAnimation
+                });
+            }
+        });
+    }
+
+    // 초기 애니메이션 호출
+    bounceAnimation();
+
+    if (callback) {
+        // 콜백 함수 호출
+        callback();
+    }
+}
+
+
+
+    //눈 내리는
+    function createSnowflake() {
+        var snowflake = $('<div class="snowflake">&#10052;</div>');
+        $('.snowflake').css('opacity', 1);
+        var startX = Math.random() * window.innerWidth;
+        var startY = -20;
+        snowflake.css({
+            position: 'absolute',
+            left: startX + 'px',
+            top: startY + 'px',
+        });
+
+        $('body').append(snowflake);
+
+        snowflake.animate(
+            {
+                top: window.innerHeight + 'px',
+                left: startX + Math.random() * 200 - 100 + 'px',
+            },
+            Math.random() * 5000 + 5000,
+            'linear',
+            function () {
+                $(this).remove();
+            }
+        );
+    }
+    let snowflakeInterval;
+    //눈 내리기 시작
+    function startSnowflakeEffect() {
+        snowflakeInterval = setInterval(createSnowflake, 300);
+    }
+    //눈 내리기 멈춤
+    function stopSnowflakeEffect() {
+        clearInterval(snowflakeInterval);
+    }
+
+
+    //////힙합
+    //전체 순서//
+    function showhipElements() {
+        hip_hat(function () {
+            setTimeout(function () {
+                $('.all').css('background', 'linear-gradient(180deg, #181C49 0%, #1BB5CD 100%)');
+                $('#hip').css('display', 'block');
+
+            }, 2000);
+
+            speaker();
+            sunglass();
+            startMoneyDropEffect();
+
+        });
+
+    }
+
+    // 힙합 모자 들썩거리는 애니메이션
+    function hip_hat(callback) {
+    $('#hip_hat').css('display', 'block');
+
+    var initialPosition = $('#hip_hat').position().top;
+
+    // 들썩거리는 애니메이션
+    function bounceAnimation() {
+        $('#hip_hat').animate({
+            top: initialPosition - 20 // 일정 높이만큼 이동
+        }, {
+            duration: 700, // 빠르게 올라가는
+            easing: 'easeInOutQuad',
+            complete: function() {
+                // 내려오는 애니메이션 시작 전에 다시 bounceAnimation 호출 (재귀적 호출)
+                $('#hip_hat').animate({
+                    top: initialPosition // 초기 위치로 되돌아가기
+                }, {
+                    duration: 700,
+                    easing: 'easeInOutQuad',
+                    complete: bounceAnimation
+                });
+            }
+        });
+    }
+
+    // 초기 애니메이션 호출
+    bounceAnimation();
+
+    if (callback) {
+        // 콜백 함수 호출
+        callback();
+    }
+}
+
+    //스피커
+    function speaker() {
+        $('.speaker').animate({
+            width: '194px',
+            height: '286px'
+        }, 100)
+        $('.speaker').animate({
+            width: '190px',
+            height: '280px'
+        }, 100)
+        setTimeout(speaker, 1500)
+    }
+
+    //선글라스
+    function sunglass() {
+        $("#sunglass").animate({ top: "-=20px" }, 500).animate({ top: "+=20px" }, 300);
+        setTimeout(sunglass, 3000);
+    }
+
+    //날리는 돈
+    function moneyDrop() {
+        var screenHeight = $(window).height();
+        var screenWidth = $(window).width();
+
+        // 애니메이션을 반복할 돈의 개수
+        var moneyCount = 3;
+
+        function createMoney(className) {
+            var createMoneyElement = $('<div class="' + className + '"></div>').appendTo('.background_img');
+
+            // 초기 위치를 무작위로 설정
+            var startX = Math.random() * screenWidth;
+            var startY = -100; // 화면 위에서 시작
+
+            createMoneyElement.css({
+                left: startX,
+                top: startY,
+                transform: 'rotate(' + (Math.random() * 360) + 'deg)',
+                'z-index': -100 // 무작위로 회전
+            });
+
+            // 애니메이션 시작
+            createMoneyElement.animate({
+                top: screenHeight + 20, // 화면 아래로 내려가는 애니메이션
+                left: startX + Math.random() * 500 - 100, // 좌우로 이동
+                opacity: 0 // 투명도 조절
+            }, Math.random() * 3000 + 1000, function () {
+                // 애니메이션이 끝나면 요소 제거
+                $(this).remove();
+            });
+        }
+
+        // 여러 돈을 생성
+        function generateMoney() {
+            createMoney('money');
+            createMoney('money2');
+            createMoney('money3');
+            createMoney('money5');
+            createMoney('money6');
+            createMoney('money7');
+        }
+
+        // moneyDrop 함수를 호출하여 애니메이션을 시작
+        generateMoney();
+    }
+    let moneyDropInterval;
+    //돈 날리기 시작
+    function startMoneyDropEffect() {
+        // 애니메이션을 300ms 간격으로 반복 실행
+        moneyDropInterval = setInterval(moneyDrop, 300);
+    }
+    //돈 날리기 멈춤
+    function stopMoneyDropEffect() {
+        // setInterval로 실행 중인 애니메이션을 중지
+        clearInterval(moneyDropInterval);
+    }
+
+
+    ////포크
+    //전체 순서//
+    function showforkElements() {
+        folkHat(function () {
+            setTimeout(function () {
+                $('#folk').css('display', 'block')
+                $('#grass').css('display', 'flex')
+                $('#grass').animate({
+                    top: 460
+                }, 500)
+                $('.all').css('background', 'linear-gradient(180deg, #DC584C 0%, #FFB332 116.2%)')
+                rotatesun();
+            }, 2500);
+
+            rotateObject('#guitar', 10, 1000)
+            rotateObject('#guitar', -10, 1000);
+
+        });
+
+    }
+
+    // 포크 모자 들썩거리는 애니메이션
+    function folkHat(callback) {
+    $('#folk_hat').css('display', 'block');
+
+    var initialPosition = $('#folk_hat').position().top;
+
+    // 들썩거리는 애니메이션
+    function bounceAnimation() {
+        $('#folk_hat').animate({
+            top: initialPosition - 20 // 일정 높이만큼 이동
+        }, {
+            duration: 700, // 빠르게 올라가는
+            easing: 'easeInOutQuad',
+            complete: function() {
+                // 내려오는 애니메이션 시작 전에 다시 bounceAnimation 호출 (재귀적 호출)
+                $('#folk_hat').animate({
+                    top: initialPosition // 초기 위치로 되돌아가기
+                }, {
+                    duration: 700,
+                    easing: 'easeInOutQuad',
+                    complete: bounceAnimation
+                });
+            }
+        });
+    }
+
+    // 초기 애니메이션 호출
+    bounceAnimation();
+
+    if (callback) {
+        // 콜백 함수 호출
+        callback();
+    }
+}
+
+    //뜨고 지는 해
+    function rotatesun() {
+        // 회전할 텍스트의 부모 요소 가져오기
+        var sunContainer_after = $('.rotating_sun:after');
+        var sunContainer = $('.rotating_sun');
+
+        // 무한 회전 애니메이션 추가
+        sunContainer_after.css({
+            'animation': 'sun-rotate-circle'
+        });
+        sunContainer.css({
+            'animation': 'moveto 40s ease'
+        });
+    }
+
+    //기타
+    function rotateObject(element, degree, duration) {
+        $(element).animate({
+            rotation: degree
+        }, {
+            duration: duration,
+            step: function (now, fx) {
+                $(this).css('transform', 'rotate(' + now + 'deg)');
+            },
+            complete: function () {
+                rotateObject(element, degree, duration);
+            }
+        });
+    }
+
+
+    //////팝
+    //전체 순서//
+    function showpopElements() {
+        crown(function () {
+            setTimeout(function () {
+                $('#pop').css('display', 'block')
+                $('.all').css('background', 'linear-gradient(180deg, #5C1B31 0%, #571B5C 100%')
+                $('#crown').show();
+
+                mic();
+                small_radio();
+            }, 3000);
+        });
+    }
+
+
+    // 팝 모자 들썩거리는 애니메이션
+    function crown(callback) {
+    $('#crown').css('display', 'block');
+
+    var initialPosition = $('#crown').position().top;
+
+    // 들썩거리는 애니메이션
+    function bounceAnimation() {
+        $('#crown').animate({
+            top: initialPosition - 20 // 일정 높이만큼 이동
+        }, {
+            duration: 700, // 빠르게 올라가는
+            easing: 'easeInOutQuad',
+            complete: function() {
+                // 내려오는 애니메이션 시작 전에 다시 bounceAnimation 호출 (재귀적 호출)
+                $('#crown').animate({
+                    top: initialPosition // 초기 위치로 되돌아가기
+                }, {
+                    duration: 700,
+                    easing: 'easeInOutQuad',
+                    complete: bounceAnimation
+                });
+            }
+        });
+    }
+
+    // 초기 애니메이션 호출
+    bounceAnimation();
+
+    if (callback) {
+        // 콜백 함수 호출
+        callback();
+    }
+}
+
+    //마이크
+    function mic() {
+        let leftMic = $('#leftmic');
+
+        function moveLeftMic() {
+            leftMic.addClass('animate');
+            setTimeout(function () {
+                leftMic.removeClass('animate');
+            }, 500);
+        }
+
+        setInterval(moveLeftMic, 1000);
+
+        let rightMic = $('#rightmic');
+
+        function moveRightMic() {
+            rightMic.addClass('animate');
+            setTimeout(function () {
+                rightMic.removeClass('animate');
+            }, 500);
+        }
+
+        setInterval(moveRightMic, 1000);
+    }
+
+    //노래부르는 미니어쳐
+    function small_radio() {
+        function singAnimation() {
+            $(".digda-body").toggleClass("expanded");
+        }
+
+        setInterval(singAnimation, 500);
+    }
+
+</script>
+
+</html>

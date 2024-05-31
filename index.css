@@ -1,0 +1,1362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all {
+    margin: 0;
+    overflow: hidden;
+}
+
+/*음원마다 변화하는 배경색 부분*/
+.all {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-30deg, #c05a3c, rgb(208, 134, 36), #dba633, #d52352);
+    z-index: -10000;
+}
+
+body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    animation: twinkle 5s ease infinite;
+    position: fixed;
+}
+
+@keyframes twinkle {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*기본 배경 반짝임 효과*/
+#confetti_set {
+    display: flex;
+}
+
+#confetti {
+    position: relative;
+    z-index: 10000;
+    top: 300px;
+    margin: auto;
+    right: 80px;
+}
+
+/* 
+#confetti_right {
+   position: relative;
+    z-index: 10000;
+    top: 300px;
+    margin: auto;
+    right: 80px;
+} */
+
+.container {
+    min-width: 1440px;
+    height: 810px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto;
+    gap: 360px;
+}
+
+#handle {
+    width: 380px;
+    height: 100px;
+    position: absolute;
+    top: 75px;
+    left: 416px;
+    z-index: -100;
+    opacity: 1;
+
+}
+
+#radio {
+    position: absolute;
+    width: 600px;
+    height: 530px;
+    /* background-image: url('./radio_img/radioback.png'); */
+    background-repeat: no-repeat;
+    background-size: 530px;
+    background-position: center;
+    transform: scale(1.47);
+    left: 324px;
+    top: 136px;
+}
+
+#radio_back {
+    position: relative;
+    width: 500px;
+    height: 530px;
+    transform: scale(1.5);
+    z-index: -100;
+    left: -80px;
+
+}
+
+#radio_line {
+
+    position: absolute;
+    transform: translateX(-666px);
+    top: 150.6px;
+    z-index: -1;
+    scale: 0.91;
+}
+
+
+
+
+/*음악 컨트롤*/
+#play_back {
+    position: absolute;
+    left: 40px;
+    top: 110px;
+    width: 64px;
+    height: 83px;
+}
+
+#control span {
+    position: absolute;
+
+}
+
+#control #plaibtn {
+    position: absolute;
+    left: 40px;
+    top: 110px;
+    width: 64px;
+    height: 83px;
+    z-index: 10000;
+}
+
+#control span:nth-child(2) {
+    left: 117px;
+    top: 121px;
+}
+
+#control span:nth-child(3) {
+    left: 202px;
+    top: 108px;
+}
+
+#stop_back {
+    position: absolute;
+    left: -22px;
+    top: -18px;
+    width: 64px;
+    height: 77px;
+}
+
+#stop_btn_img {
+    position: absolute;
+    left: -22px;
+    top: -18px;
+    width: 64px;
+    height: 77px;
+}
+
+#minus_back {
+    position: absolute;
+    left: 424px;
+    top: 105px;
+    width: 59px;
+    height: 73.5px;
+}
+
+#minus_btn_img {
+    position: absolute;
+    left: 423px;
+    top: 105px;
+    width: 62px;
+    height: 73.5px;
+}
+
+#plus_back {
+    position: absolute;
+    left: 482px;
+    top: 113px;
+    width: 59px;
+    height: 73px;
+}
+
+#plus_btn_img {
+    position: absolute;
+    left: 479px;
+    top: 114px;
+    width: 62px;
+    height: 72px;
+}
+
+/*얼굴*/
+#eyes {
+    position: absolute;
+    top: 200px;
+    left: 246px;
+    display: flex;
+    gap: 20px;
+}
+
+#mouth_box {
+    display: inline-block;
+}
+
+#mouth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 136px;
+    border-color: black;
+    border-style: solid;
+    border-bottom-width: 6px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-radius: 9px 10px 90px 90px;
+    overflow: hidden;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 315px;
+    left: 293px;
+    background-color: #F9917C;
+}
+
+#mouth .top {
+    background-image: url('./radio_img/mouth_top.png');
+    background-repeat: no-repeat;
+    background-size: 220px;
+    height: 36px;
+    width: 220px;
+    display: inline-block;
+    z-index: 1000;
+    position: absolute;
+    transform: rotate(1deg);
+    top: -5px;
+}
+
+#mouth .bottom {
+    background-image: url('./radio_img/mouth_bottom.png');
+    background-repeat: no-repeat;
+    background-size: 220px;
+    height: 90px;
+    width: 220px;
+    /* 수정된 부분 */
+    display: inline-block;
+    margin-left: -2px;
+    position: absolute;
+    bottom: -9px;
+}
+
+.eye {
+    position: relative;
+    top: 26px;
+    left: 48px;
+    width: 80px;
+    height: 50px;
+    margin: 0 15px;
+    /* background: #fff;  */
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+}
+
+.eyes_container {
+
+    display: flex;
+    flex-direction: row;
+    gap: -80px;
+    position: absolute;
+    top: 185px;
+    left: 184px;
+}
+
+
+.pupil {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+
+/*음원*/
+.music_box {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    gap: 20px;
+    z-index: 50000;
+}
+
+#music_info_box {
+    width: 230px;
+    height: 51px;
+    position: relative;
+    overflow: hidden;
+    background-image: url('./rolling_bg.png');
+    background-repeat: no-repeat;
+    background-size: 230px;
+    margin-left: -26px;
+}
+
+#rotatingText {
+    z-index: 1000;
+    color: aliceblue;
+    position: absolute;
+    top: 494px;
+    left: -135px;
+    overflow: visible;
+    transform: rotate(160deg);
+}
+
+@keyframes rotate-circle {
+    from {
+        transform: rotate(180deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+#ss {
+    position: relative;
+}
+
+#textPath {
+    font-size: 16px;
+    font-family: 'Jalnan';
+}
+
+.music:nth-child(1) img {
+    width: 90px;
+    margin-top: -7px;
+}
+
+.music:nth-child(3) img {
+    width: 90px;
+    margin-top: -2px;
+
+}
+
+/*크리스마스*/
+#chris {
+    position: absolute;
+    top: 0;
+    left: 130px;
+    /* transform: scale(1.5); */
+}
+
+#chris img {
+    position: absolute;
+
+}
+
+#chris #hat {
+    top: 332px;
+    left: 236px;
+    width: 160px;
+    z-index: 10;
+
+}
+
+#chris #left_box_blue {
+    top: 395px;
+    left: 85px;
+    width: 66px;
+}
+
+#chris #left_box_brown {
+    top: 377px;
+    left: 55px;
+    width: 56px;
+    z-index: -10;
+}
+
+#chris #left_box_green {
+    top: 377px;
+    left: 128px;
+    width: 84px;
+}
+
+#giftBoxContainer {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 377px;
+    left: 128px;
+
+}
+
+#giftBox {
+    width: 80px;
+    height: 60px;
+
+    position: absolute;
+    top: 20px;
+}
+
+#lidContainer {
+    position: absolute;
+    top: 0;
+}
+
+#lid {
+    width: 80px;
+    height: 20px;
+
+}
+
+#chris #sock {
+    top: 46px;
+    left: 3px;
+    transform: scale(1.5);
+}
+
+#chris #stick {
+    top: 57px;
+    left: 876px;
+    transform: scale(1.5);
+}
+
+#chris #lefttree {
+    transform: scale(1.4) translate(-50%, -50%);
+    top: 480px;
+    left: -20px;
+    z-index: -140;
+}
+
+#chris #righttree {
+    top: 480px;
+    left: 1020px;
+    transform: scale(1.4) translate(-50%, -50%);
+    z-index: -200;
+}
+
+#chris_light {
+    display: none;
+    position: absolute;
+    z-index: -10000;
+    width: 120vw;
+    top: 0;
+    transform: translateX(-14%);
+}
+
+
+
+#shadow {
+    display: block;
+    position: absolute;
+    left: 332px;
+    top: 586px;
+    z-index: -300;
+    width: 580px;
+    opacity: 0.6;
+}
+
+#snowback {
+    display: none;
+    position: absolute;
+    bottom: -60vh;
+    width: 120vw;
+    height: 60vh;
+    z-index: -10000;
+
+}
+
+#movingBox {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 466px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+
+.snowflake {
+    position: absolute;
+    color: #ffffff;
+    font-size: 20px;
+
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1000;
+}
+
+.middle_giftbox {
+    display: flex;
+    gap: 638px;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 126px;
+    position: absolute;
+    top: 626px;
+    left: 94px;
+    z-index: -10;
+}
+
+.giftBox {
+    position: relative !important;
+    width: 140px;
+    height: 94px;
+    transition: transform 0.5s cubic-bezier(0.12, 0.87, 0.31, 1.14);
+}
+
+#front_giftbox_container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    gap: 418px;
+    top: 600px;
+    left: 200px;
+}
+
+#front_giftbox_left,
+#front_giftbox_right {
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 126px;
+}
+
+.giftBox-body {
+    width: 140px;
+    height: 94px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+.lidContainer {
+    margin-top: 6px;
+    position: absolute;
+    top: 0;
+    width: 140px;
+    height: 32px;
+}
+
+.lid {
+    width: 140px;
+    height: 32px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cir_giftbox-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 800px;
+    position: absolute;
+    top: 600px;
+    left: 30px;
+    z-index: -100;
+}
+
+.back_giftbox {
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    z-index: -2000;
+}
+
+.giftBox3 {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(0deg);
+    transition: transform 1s cubic-bezier(0.12, 0.87, 0.31, 1.14), left 1s cubic-bezier(0.12, 0.87, 0.31, 1.14);
+}
+
+/*힙합 이미지*/
+#hip {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.speaker {
+    width: 190px;
+    height: 280px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.speaker:nth-child(1) {
+    top: 500px;
+    left: 1044px;
+}
+
+.speaker:nth-child(2) {
+    top: 500px;
+    left: 214px;
+}
+
+#textmove {
+    width: 1000px;
+    position: absolute;
+    top: -223px;
+    left: 142px;
+    z-index: -90;
+}
+
+#sunglass {
+    position: absolute;
+    width: 633px;
+    height: 190px;
+    top: 0px;
+    transform: translate(300px, 280px);
+    z-index: 100;
+}
+
+#magic_particle_right {
+    position: absolute;
+    right: 180px;
+    z-index: -1000;
+}
+
+#magic_particle {
+    position: absolute;
+    z-index: -1000;
+}
+
+#hip_hat {
+    width: 200px;
+    height: 154px;
+    position: absolute;
+    top: 50px;
+    left: 507px;
+    margin: 0 auto;
+    z-index: 50;
+}
+
+#hip_back {
+
+    position: absolute;
+    top: 560px;
+    left: -78px;
+    width: 1400px;
+    z-index: -10000;
+
+}
+
+.money {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+}
+
+.money2 {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+}
+
+.money3 {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+}
+
+.money5 {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+}
+
+.money6 {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+}
+
+.money7 {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+}
+
+.money2::after {
+    position: absolute;
+    font-size: 40px;
+    color: green;
+    content: url("hip/money_1.png");
+    background-image: url();
+    width: 10px;
+    height: 0px;
+}
+
+.money::after {
+    position: absolute;
+    font-size: 40px;
+    color: green;
+    content: url("hip/money_2.png");
+    width: 10px;
+    height: 10px;
+}
+
+.money4::after {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+    content: url("hip/money_3.png");
+    width: 10px;
+    height: 0px;
+
+}
+
+.money5::after {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+    content: url("hip/money_4.png");
+    width: 10px;
+    height: 0px;
+
+}
+
+.money6::after {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+    content: url("hip/money_3.png");
+    width: 10px;
+    height: 0px;
+
+}
+
+.money7::after {
+    position: absolute;
+    font-size: 10px;
+    color: green;
+    content: url("hip/money_1.png");
+    width: 10px;
+    height: 0px;
+
+}
+
+
+#note_left {
+    position: relative;
+    opacity: 1;
+    left: 5%;
+    top: 100px;
+    z-index: -10000000;
+}
+
+#note_right {
+    position: relative;
+    left: 70%;
+    opacity: 1;
+    z-index: -100000;
+}
+
+.blinking {
+    -webkit-animation: blink 0.5s ease-in-out infinite alternate;
+    -moz-animation: blink 0.5s ease-in-out infinite alternate;
+    animation: blink 0.5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinking-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes blink {
+
+    0%,
+    49.9%,
+    100% {
+        background-color: none;
+    }
+
+    50%,
+    99.9% {
+        background-color: white;
+    }
+}
+
+@keyframes blinkFasta {
+
+    0%,
+    49.9%,
+    100% {
+        background-color: none;
+    }
+
+    50%,
+    99.9% {
+        background-color: white;
+    }
+}
+
+/*포크 이미지*/
+#folk {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.folkhat-back{
+    position: relative;
+    top: 582px;
+    width: 340px;
+    /* 조절 가능한 기본 폭 */
+    height: 150px;
+    /* 조절 가능한 기본 높이 */
+}
+
+.folkhat-back img {
+    top: 582px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    /* 모자 뒷 부분 둥글게 */
+}
+
+.folkhat-front img {
+    top: 582px;
+    position: absolute;
+    left: 170px;
+    transform: translateX(-50%);
+    width: 70%;
+    animation: flap 1s infinite alternate;
+    /* 애니메이션 추가 */
+    margin-top: 88px;
+    /* 마진을 사용하여 뒤의 챙과 간격 조절 */
+    transform-origin: center top;
+    /* 회전 중심을 상단으로 설정 */
+    animation-delay: 1.8s;
+}
+
+@keyframes flap {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scaleY(0.7);
+    }
+}
+
+#folk_hat {
+    width: 340px;
+    height: 150px;
+    position: relative;
+    top: -534px;
+    margin: 0 auto;
+}
+
+.folk_movingBox {
+    width: 340px;
+    height: 150px;
+    top: -534px;
+    position: absolute;
+    left: 450px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.folk_movingBox:nth-child(1) {
+    z-index: -100;
+
+}
+
+.folk_movingBox:nth-child(2) {
+    z-index: 100;
+}
+
+#guitar {
+    position: absolute;
+    top: 260px;
+    left: 240px;
+    z-index: 50;
+}
+
+.cactus_1 {
+    left: 1080px;
+    position: absolute;
+    top: 550px;
+    animation: flap_1 1s infinite alternate;
+    transform-origin: center bottom;
+    z-index: 100;
+}
+
+@keyframes flap_1 {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scaleY(0.7);
+    }
+}
+
+.cactus_2 {
+    left: 18px;
+    position: absolute;
+    top: 550px;
+    animation: flap_2 1s infinite alternate;
+    transform-origin: center bottom;
+    z-index: 300;
+}
+
+@keyframes flap_2 {
+
+    0%,
+    100% {
+        transform: scaleX(-1) translateX(-50%) scaleY(1);
+    }
+
+    50% {
+        transform: scaleX(-1) translateX(-50%) scaleY(0.9);
+    }
+}
+
+#grass {
+    display: none;
+    position: absolute;
+    bottom: -60vh;
+    width: 120vw;
+    height: 600px;
+    z-index: -10000;
+}
+
+.rotating_sun {
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top: 80px;
+    left: -60px;
+    scale: 1.2;
+    offset: path("M0,0M1 270C506.098 -93.729 1482.61 -83.5683 2051 270") auto;
+    opacity: 1;
+    z-index: -1000;
+}
+
+.rotating_sun:after {
+    content: url('data:svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="92" height="88" viewBox="0 0 92 88" fill="none"><path d="M28.1862 84.5544C6.31443 77.5027 1.78206 60.7065 0.722656 47.257C-0.635869 30.01 7.17336 14.8136 20.0172 7.37905C37.8428 -2.93907 57.2556 -0.464834 69.0311 5.73281C77.53 10.2059 88.6717 22.8062 90.7434 39.84C92.8151 56.8738 88.3373 65.8056 77.4004 76.314C67.6876 85.6464 52.5787 92.4189 28.1862 84.5544Z" fill="#FEEAC1" /></svg>');
+    display: block;
+}
+
+@keyframes moveto {
+    0% {
+        offset-distance: 0%
+    }
+
+    100% {
+        offset-distance: 100%
+    }
+}
+
+@keyframes sun-rotate-circle {
+    from {
+        transform: rotate(1turn);
+    }
+}
+
+.road {
+    position: relative;
+    width: 100%;
+    top: 420px;
+    left: 600px;
+    z-index: 2;
+}
+
+.car {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    bottom: 0%;
+    left: 80%;
+    animation: shake 0.18s linear infinite alternate;
+    scale: 0.7;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+
+/*pop*/
+#pop {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#crown {
+    /* top: -480px; */
+    left: 523px;
+    position: absolute;
+    width: 172.42px;
+    height: 147.49px;
+    z-index: 100;
+}
+
+#leftmic_set,
+#rightmic_set {
+    display: flex;
+    margin-top: 500px;
+    z-index: 100;
+    left: 20px;
+}
+
+#leftmic,
+#rightmic {
+    position: relative;
+    bottom: 0;
+    width: 118.91px;
+    height: 251.52px;
+    overflow: visible;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+
+}
+
+#left_miceffectimg,
+#right_miceffectimg {
+    width: 39px;
+    height: 100px;
+    margin-top: 10px;
+    opacity: 0;
+    animation: blink 5s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    59.9% {
+        opacity: 0;
+    }
+
+    60%,
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate {
+    transform: scale(1.03);
+    opacity: 1;
+}
+
+#two_mic {
+    display: flex;
+    align-items: center;
+    gap: 305px;
+    position: absolute;
+    top: -80px;
+    left: 320px;
+}
+
+.digda_box {
+    display: flex;
+    gap: 730px;
+    position: absolute;
+    top: 460px;
+    left: 120px;
+}
+
+.digda-character {
+    position: relative;
+    width: 150px;
+    /* 상하폭 조정 */
+    top: 100px;
+}
+
+.digda-body img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.digda-mouth img {
+    position: absolute;
+    z-index: 10;
+    /* 상단 고정 */
+    top: -43px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    animation: flap2 1s infinite alternate ease-in-out;
+    /* 애니메이션 추가 */
+    margin-top: 80px;
+    /* 마진을 사용하여 뒤의 챙과 간격 조절 */
+    transform-origin: center bottom;
+    /* 회전 중심을 상단으로 설정 */
+    animation-delay: 0.5s;
+}
+
+.digda-eye img {
+    position: absolute;
+    top: -47px;
+    /* 상단 고정 */
+    left: 40%;
+    /* transform: translateX(-50%); */
+    width: 20%;
+    animation: flap3 1s infinite alternate ease-in-out;
+    /* 애니메이션 추가 */
+    margin-top: 80px;
+    /* 마진을 사용하여 뒤의 챙과 간격 조절 */
+    transform-origin: center bottom;
+    /* 회전 중심을 상단으로 설정 */
+    animation-delay: 0.5s;
+}
+
+.expanded img {
+    transform: scaleY(1.1);
+}
+
+@keyframes flap2 {
+
+    50% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    0%,
+    100% {
+        transform: translateX(-50%) scaleY(0.8);
+    }
+
+}
+
+@keyframes flap3 {
+
+    50% {
+        transform: translateY(-8px)
+    }
+}
+
+#right_rose_container {
+    position: relative;
+    top: 458px;
+    left: 865px;
+    z-index: 100;
+}
+
+#left_rose_container {
+    position: relative;
+    top: 458px;
+    right: 129px;
+    z-index: 100;
+}
+
+.left-rose {
+    animation-duration: 7s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 80px;
+    left: 100%;
+    scale: 1.2;
+    offset: path("M271 58.7971C207.327 -42.8381 37 -37.5859 1 299.415") auto;
+    animation: moveta 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+    opacity: 1;
+    offset-rotate: 0deg;
+    width: 48px;
+    height: 48px;
+}
+
+.right-rose {
+    animation-duration: 7s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 80px;
+    left: 100%;
+    scale: 1.2;
+    offset: path("M1 58.7971C64.6735 -42.8381 235 -37.5859 271 299.415") auto;
+    animation: moveta 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+    opacity: 1;
+    offset-rotate: 0deg;
+    width: 48px;
+    height: 48px;
+}
+
+@keyframes moveta {
+    0% {
+        offset-distance: 100%;
+    }
+
+    80% {
+        offset-distance: 0%;
+    }
+
+    100% {
+        offset-distance: 0%;
+    }
+}
+
+/* left */
+.left-rose:nth-child(1) {
+    margin-top: 100px;
+    margin-left: 100px;
+    offset-rotate: 2deg;
+}
+
+.left-rose:nth-child(2) {
+    margin-top: 110px;
+    margin-left: 40px;
+    offset-rotate: -6deg;
+}
+
+.left-rose:nth-child(3) {
+    margin-top: 120px;
+    margin-left: 60px;
+    offset-rotate: 5deg;
+}
+
+.left-rose:nth-child(4) {
+    margin-top: 90px;
+    margin-left: 140px;
+    offset-rotate: -7deg;
+}
+
+.left-rose:nth-child(5) {
+    margin-top: 110px;
+    margin-left: 130px;
+    offset-rotate: 4deg;
+}
+
+/* right */
+.right-rose:nth-child(1) {
+    margin-top: 100px;
+    margin-left: 100px;
+    offset-rotate: 2deg;
+}
+
+.right-rose:nth-child(2) {
+    margin-top: 110px;
+    margin-left: 140px;
+    offset-rotate: -6deg;
+}
+
+.right-rose:nth-child(3) {
+    margin-top: 130px;
+    margin-left: 160px;
+    offset-rotate: 5deg;
+}
+
+.right-rose:nth-child(4) {
+    margin-top: 100px;
+    margin-left: 65px;
+    offset-rotate: -7deg;
+}
+
+.right-rose:nth-child(5) {
+    margin-top: 120px;
+    margin-left: 105px;
+    offset-rotate: 4deg;
+}
+
+#pop_title {
+    position: absolute;
+    transform: translateX(-10%);
+    width: 100Vw;
+    z-index: -1000; 
+    scale: 1.4;
+    padding-bottom: 450px;
+}
+
+#pop_back {
+    opacity: 1;
+    position: absolute;
+    top: 600px;
+    left: -456px;
+    width: 2160px;
+    height: 36vh;
+    z-index: -10000;
+
+}
+
+.blinking-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@keyframes blink {
+
+    0%,
+    49.9%,
+    100% {
+        background-color: white;
+    }
+}
+
+@keyframes blinkFast {
+
+    0%,
+    49.9%,
+    100% {
+        background-color: white;
+    }
+}
