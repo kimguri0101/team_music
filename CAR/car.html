@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>덜덜거리는 자동차 애니메이션</title>
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+
+
+    .car {
+        width: 50px;
+        height: 30px;
+        position: absolute;
+        bottom: 50%;
+        left: 0%;
+        transform: translateX(-500%);
+        animation: shake 0.3s linear infinite alternate;
+        z-index: 100;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+</style>
+
+<body>
+
+    <div class="road">
+        <div class="car"><img src="디자인 완성/자동차.svg" alt=""></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function shakeCar() {
+                $('.car').css('transform', 'translateX(-50%) translateY(-20px)');
+                setTimeout(function () {
+                    $('.car').css('transform', 'translateX(-50%) translateY(0)');
+                }, 100);
+            }
+
+            function moveCar() {
+                $('.car').animate({ left: '100%' }, 5000, 'linear', function () {
+                    $(this).css('left', '-50%');
+                    shakeCar();
+                    moveCar();
+                });
+            }
+
+            moveCar();
+        });
+    </script>
+</body>
+
+</html>
